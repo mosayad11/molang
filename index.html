@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="MoLang - A modern indentation-first programming language for HTML, CSS and JavaScript."
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <title>
+        MoLang — Code Differently
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="background">
+
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span class="logo-mark">
+                    MO
+                </span>
+
+                <span class="logo-text">
+                    MoLang
+                </span>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="#features">
+                    Features
+                </a>
+
+                <a href="#example">
+                    Examples
+                </a>
+
+                <a href="#syntax">
+                    Syntax
+                </a>
+
+                <a href="how-it-works.html">
+                    How It Works
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a
+                    href="downloads/MoLangSetup.exe"
+                    class="nav-download"
+                    download
+                >
+                    Download
+                </a>
+
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation menu"
+                    type="button"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#example">
+                Examples
+            </a>
+
+            <a href="#syntax">
+                Syntax
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+            <a
+                href="downloads/MoLangSetup.exe"
+                class="mobile-download"
+                download
+            >
+                Download MoLang
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="version-badge">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        MoLang
+                    </span>
+
+                    <span class="version">
+                        v0.0.15
+                    </span>
+
+                </div>
+
+
+                <h1>
+
+                    Code
+
+                    <span class="gradient-text">
+                        differently.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    MoLang is an indentation-first language
+                    designed to make HTML, CSS and JavaScript
+                    easier to write, easier to read and much
+                    cleaner to organize.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="downloads/MoLangSetup.exe"
+                        class="primary-button"
+                        download
+                        id="heroDownload"
+                    >
+
+                        <span class="button-icon">
+                            ↓
+                        </span>
+
+                        Download for Windows
+
+                    </a>
+
+
+                    <a
+                        href="how-it-works.html"
+                        class="secondary-button"
+                    >
+
+                        How It Works
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-note">
+
+                    <span>
+                        Windows
+                    </span>
+
+                    <span class="separator">
+                        •
+                    </span>
+
+                    <span>
+                        VS Code Extension
+                    </span>
+
+                    <span class="separator">
+                        •
+                    </span>
+
+                    <span>
+                        Free
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO CODE -->
+
+            <div class="hero-code-wrapper">
+
+                <div class="code-glow"></div>
+
+
+                <div class="code-card">
+
+                    <div class="code-header">
+
+                        <div class="window-buttons">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+
+                        <div class="code-title">
+                            index.molang
+                        </div>
+
+
+                        <button
+                            class="copy-button"
+                            data-copy-target="heroCode"
+                            type="button"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre
+                        class="code-content"
+                        id="heroCode"
+                    ><code><span class="keyword">page</span>.
+    <span class="keyword">head</span>.
+        <span class="keyword">title</span>. <span class="string">My page</span>
+
+    <span class="keyword">body</span>.
+        <span class="keyword">main</span> <span class="attribute">class</span>=<span class="string">"card"</span>.
+            <span class="keyword">h1</span>. <span class="text-value">Hello 👋</span>
+            <span class="keyword">p</span>. <span class="text-value">مرحبا بالعالم</span></code></pre>
+
+
+                    <div class="code-footer">
+
+                        <span>
+                            MoLang Language
+                        </span>
+
+
+                        <span class="live-indicator">
+
+                            <span></span>
+
+                            Ready
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FEATURES
+        ================================================== -->
+
+        <section
+            class="section features-section"
+            id="features"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    FEATURES
+                </span>
+
+                <h2>
+
+                    Built to make coding
+
+                    <span class="gradient-text">
+                        simpler.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    MoLang keeps your code structured through
+                    indentation and reduces unnecessary syntax
+                    while staying familiar to web developers.
+
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Indentation First
+                    </h3>
+
+                    <p>
+
+                        Nest elements and blocks using indentation,
+                        making the structure of your code visible
+                        immediately.
+
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        02
+                    </div>
+
+                    <h3>
+                        Clean HTML Syntax
+                    </h3>
+
+                    <p>
+
+                        Create elements using short readable
+                        statements instead of repeated opening
+                        and closing tags.
+
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        03
+                    </div>
+
+                    <h3>
+                        VS Code Ready
+                    </h3>
+
+                    <p>
+
+                        Get syntax highlighting, custom file
+                        support, commands and MoLang tools
+                        directly inside Visual Studio Code.
+
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        04
+                    </div>
+
+                    <h3>
+                        HTML, CSS & JS
+                    </h3>
+
+                    <p>
+
+                        MoLang is designed for web development
+                        and can represent page structure,
+                        styling and JavaScript-oriented workflows.
+
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        05
+                    </div>
+
+                    <h3>
+                        Lightweight
+                    </h3>
+
+                    <p>
+
+                        Install the extension, open a MoLang file
+                        and start writing without a heavy
+                        development environment.
+
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        06
+                    </div>
+
+                    <h3>
+                        Readable by Design
+                    </h3>
+
+                    <p>
+
+                        The structure is intentionally simple so
+                        projects remain readable even as they
+                        become larger.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXAMPLE COMPARISON
+        ================================================== -->
+
+        <section
+            class="section example-section"
+            id="example"
+        >
+
+            <div class="example-container">
+
+                <div class="example-text">
+
+                    <span class="section-label">
+                        WRITE LESS
+                    </span>
+
+
+                    <h2>
+
+                        Less syntax.
+
+                        <br>
+
+                        <span class="gradient-text">
+                            More structure.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        The same page structure can be written
+                        without repeated closing tags.
+                        Indentation tells MoLang how elements
+                        belong together.
+
+                    </p>
+
+
+                    <a
+                        href="how-it-works.html"
+                        class="text-link"
+                    >
+
+                        Learn how it works
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <div class="comparison-header">
+
+                        <div>
+                            Traditional HTML
+                        </div>
+
+                        <div>
+                            MoLang
+                        </div>
+
+                    </div>
+
+
+                    <div class="comparison-body">
+
+                        <div class="comparison-column">
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My page&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;main class="card"&gt;
+            &lt;h1&gt;Hello 👋&lt;/h1&gt;
+            &lt;p&gt;مرحبا بالعالم&lt;/p&gt;
+        &lt;/main&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                        </div>
+
+
+                        <div class="comparison-divider"></div>
+
+
+                        <div class="comparison-column molang-code">
+
+<pre><code><span>page</span>.
+    <span>head</span>.
+        <span>title</span>. <b>My page</b>
+
+    <span>body</span>.
+        <span>main</span> <em>class="card"</em>.
+            <span>h1</span>. <b>Hello 👋</b>
+            <span>p</span>. <b>مرحبا بالعالم</b></code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SYNTAX EXAMPLES
+        ================================================== -->
+
+        <section
+            class="section syntax-section"
+            id="syntax"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    MOLANG SYNTAX
+                </span>
+
+
+                <h2>
+
+                    One language.
+
+                    <span class="gradient-text">
+                        Multiple web tasks.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Use MoLang to describe page structure,
+                    connect external files and write styles
+                    with the same indentation-first approach.
+
+                </p>
+
+            </div>
+
+
+            <div class="syntax-grid">
+
+
+                <!-- HTML -->
+
+                <article class="syntax-card">
+
+                    <div class="syntax-card-header">
+
+                        <div>
+
+                            <span class="syntax-dot html-dot"></span>
+
+                            HTML Structure
+
+                        </div>
+
+
+                        <button
+                            class="copy-button"
+                            data-copy-target="htmlSyntax"
+                            type="button"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre
+                        id="htmlSyntax"
+                        class="syntax-code"
+                    ><code><span class="keyword">page</span>.
+    <span class="keyword">body</span>.
+        <span class="keyword">h1</span>. <span class="text-value">Welcome</span>
+        <span class="keyword">p</span>. <span class="text-value">This is a paragraph</span>
+        <span class="keyword">img</span> <span class="attribute">src</span>=<span class="string">"mosayad.jpg"</span></code></pre>
+
+                </article>
+
+
+                <!-- CSS -->
+
+                <article class="syntax-card">
+
+                    <div class="syntax-card-header">
+
+                        <div>
+
+                            <span class="syntax-dot css-dot"></span>
+
+                            Styling
+
+                        </div>
+
+
+                        <button
+                            class="copy-button"
+                            data-copy-target="styleSyntax"
+                            type="button"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre
+                        id="styleSyntax"
+                        class="syntax-code"
+                    ><code><span class="keyword">style</span>.
+    <span class="keyword">body</span>.
+        <span class="property">color</span>: <span class="value">#18202b</span>
+        <span class="property">padding</span>: <span class="value">40px</span></code></pre>
+
+                </article>
+
+
+                <!-- LINK -->
+
+                <article class="syntax-card">
+
+                    <div class="syntax-card-header">
+
+                        <div>
+
+                            <span class="syntax-dot link-dot"></span>
+
+                            External Stylesheet
+
+                        </div>
+
+
+                        <button
+                            class="copy-button"
+                            data-copy-target="linkSyntax"
+                            type="button"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre
+                        id="linkSyntax"
+                        class="syntax-code"
+                    ><code><span class="keyword">link</span> <span class="attribute">rel</span>=<span class="string">"stylesheet"</span> <span class="attribute">href</span>=<span class="string">"style.mo"</span></code></pre>
+
+                </article>
+
+
+                <!-- IMAGE -->
+
+                <article class="syntax-card">
+
+                    <div class="syntax-card-header">
+
+                        <div>
+
+                            <span class="syntax-dot image-dot"></span>
+
+                            Attributes
+
+                        </div>
+
+
+                        <button
+                            class="copy-button"
+                            data-copy-target="attributeSyntax"
+                            type="button"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre
+                        id="attributeSyntax"
+                        class="syntax-code"
+                    ><code><span class="keyword">main</span> <span class="attribute">class</span>=<span class="string">"card"</span>.
+    <span class="keyword">img</span> <span class="attribute">src</span>=<span class="string">"mosayad.jpg"</span>
+    <span class="keyword">p</span>. <span class="text-value">Hello from MoLang</span></code></pre>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DOWNLOAD
+        ================================================== -->
+
+        <section class="download-section">
+
+            <div class="download-card">
+
+                <div class="download-content">
+
+                    <span class="section-label">
+                        GET STARTED
+                    </span>
+
+
+                    <h2>
+
+                        Ready to try
+
+                        <span class="gradient-text">
+                            MoLang?
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Install MoLang for Visual Studio Code
+                        and start creating your first
+                        indentation-first web project.
+
+                    </p>
+
+
+                    <a
+                        href="downloads/MoLangSetup.exe"
+                        class="primary-button large-button"
+                        download
+                    >
+
+                        <span class="button-icon">
+                            ↓
+                        </span>
+
+                        Download MoLang
+
+                    </a>
+
+
+                    <div class="download-info">
+
+                        <span>
+                            Version 0.0.15
+                        </span>
+
+                        <span>
+                            •
+                        </span>
+
+                        <span>
+                            Windows
+                        </span>
+
+                        <span>
+                            •
+                        </span>
+
+                        <span>
+                            Free
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <span class="logo-mark">
+                        MO
+                    </span>
+
+                    <span class="logo-text">
+                        MoLang
+                    </span>
+
+                </a>
+
+
+                <p>
+                    Code differently.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+
+                    <h4>
+                        Product
+                    </h4>
+
+                    <a href="#features">
+                        Features
+                    </a>
+
+                    <a href="#example">
+                        Examples
+                    </a>
+
+                    <a href="#syntax">
+                        Syntax
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Learn
+                    </h4>
+
+                    <a href="how-it-works.html">
+                        How It Works
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Download
+                    </h4>
+
+                    <a
+                        href="downloads/MoLangSetup.exe"
+                        download
+                    >
+                        Windows
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+
+                ©
+
+                <span id="currentYear"></span>
+
+                MoLang. All rights reserved.
+
+            </span>
+
+
+            <span>
+                Made for developers.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
