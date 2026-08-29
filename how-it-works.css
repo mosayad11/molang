@@ -1,0 +1,745 @@
+
+/* =====================================================
+    DOCUMENTATION PAGE
+====================================================== */
+
+.docs-page {
+    width: min(
+        calc(100% - 40px),
+        1180px
+    );
+
+    margin: auto;
+
+    padding:
+        80px 0
+        130px;
+}
+
+
+/* =====================================================
+    HERO
+====================================================== */
+
+.docs-hero {
+    max-width: 850px;
+
+    margin-bottom: 90px;
+}
+
+
+.docs-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        7px
+        11px;
+
+    margin-bottom: 24px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    color: var(--accent-light);
+
+    font-size: 12px;
+}
+
+
+.docs-hero h1 {
+    max-width: 850px;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            82px
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+
+.docs-hero > p {
+    max-width: 760px;
+
+    margin-top: 28px;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.docs-hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 32px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =====================================================
+    DOCUMENTATION LAYOUT
+====================================================== */
+
+.docs-layout {
+    display: grid;
+
+    grid-template-columns:
+        230px
+        minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 70px;
+}
+
+
+/* =====================================================
+    TABLE OF CONTENTS
+====================================================== */
+
+.docs-sidebar {
+    position: sticky;
+
+    top: 110px;
+
+    padding:
+        18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background:
+        rgba(16, 22, 33, 0.78);
+
+    backdrop-filter: blur(14px);
+}
+
+
+.docs-sidebar-title {
+    margin-bottom: 13px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.docs-sidebar nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.docs-sidebar a {
+    padding:
+        9px
+        10px;
+
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.docs-sidebar a:hover {
+    color: var(--text);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+}
+
+
+/* =====================================================
+    CONTENT
+====================================================== */
+
+.docs-content {
+    min-width: 0;
+}
+
+
+.docs-section {
+    scroll-margin-top: 110px;
+
+    padding-bottom: 95px;
+}
+
+
+.docs-section:last-child {
+    padding-bottom: 0;
+}
+
+
+.docs-section-number {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--accent-light);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+
+.docs-section h2 {
+    margin-bottom: 20px;
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            47px
+        );
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+
+.docs-section h3 {
+    margin:
+        42px 0
+        13px;
+
+    font-size: 21px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.docs-section p {
+    margin-top: 14px;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+.docs-section strong {
+    color: var(--text);
+}
+
+
+/* =====================================================
+    INFO BOX
+====================================================== */
+
+.info-box {
+    margin-top: 25px;
+
+    padding:
+        18px
+        20px;
+
+    border: 1px solid
+        rgba(124, 92, 255, 0.2);
+
+    border-radius: 13px;
+
+    background:
+        rgba(124, 92, 255, 0.055);
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+
+.info-box strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--accent-light);
+}
+
+
+.warning-box {
+    border-color:
+        rgba(241, 199, 91, 0.24);
+
+    background:
+        rgba(241, 199, 91, 0.055);
+}
+
+
+.warning-box strong {
+    color: #f1c75b;
+}
+
+
+/* =====================================================
+    CODE BLOCKS
+====================================================== */
+
+.docs-code {
+    margin-top: 22px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 24, 36, 0.97),
+            rgba(9, 13, 21, 0.98)
+        );
+}
+
+
+.docs-code-header {
+    min-height: 49px;
+
+    padding:
+        0
+        16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.docs-code pre {
+    padding: 22px;
+
+    overflow-x: auto;
+
+    color: #c6cee0;
+
+    font-family:
+        "Cascadia Code",
+        "Fira Code",
+        Consolas,
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    white-space: pre;
+}
+
+
+.docs-code .tag {
+    color: #a38cff;
+}
+
+
+.docs-code .attr {
+    color: #72a8ff;
+}
+
+
+.docs-code .str {
+    color: #7bdcb5;
+}
+
+
+.docs-code .prop {
+    color: #72a8ff;
+}
+
+
+.docs-code .val {
+    color: #efc06d;
+}
+
+
+.docs-code .comment {
+    color: #687386;
+}
+
+
+/* =====================================================
+    BEFORE / AFTER
+====================================================== */
+
+.conversion-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 13px;
+
+    margin-top: 24px;
+}
+
+
+.conversion-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: var(--surface);
+}
+
+
+.conversion-title {
+    padding:
+        13px
+        16px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.conversion-card:last-child
+.conversion-title {
+    color: var(--accent-light);
+}
+
+
+.conversion-card pre {
+    padding: 20px;
+
+    overflow-x: auto;
+
+    color: #bfc8da;
+
+    font-family:
+        "Cascadia Code",
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.85;
+}
+
+
+/* =====================================================
+    CONCEPT CARDS
+====================================================== */
+
+.concept-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 13px;
+
+    margin-top: 24px;
+}
+
+
+.concept-card {
+    padding: 21px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+
+.concept-card h4 {
+    margin-bottom: 8px;
+
+    font-size: 15px;
+}
+
+
+.concept-card p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+    STEPS
+====================================================== */
+
+.steps {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin-top: 25px;
+}
+
+
+.step {
+    display: grid;
+
+    grid-template-columns:
+        42px
+        1fr;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+
+.step-number {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(124, 92, 255, 0.11);
+
+    color: var(--accent-light);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.step h4 {
+    margin-bottom: 5px;
+
+    font-size: 15px;
+}
+
+
+.step p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+    INLINE CODE
+====================================================== */
+
+code.inline {
+    padding:
+        3px
+        7px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #d9dff0;
+
+    font-family:
+        "Cascadia Code",
+        Consolas,
+        monospace;
+
+    font-size: 0.9em;
+}
+
+
+/* =====================================================
+    NEXT CARD
+====================================================== */
+
+.finish-card {
+    padding:
+        55px
+        35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(124, 92, 255, 0.13),
+            transparent 60%
+        ),
+        var(--surface);
+
+    text-align: center;
+}
+
+
+.finish-card h2 {
+    margin: 0 auto;
+
+    max-width: 650px;
+}
+
+
+.finish-card p {
+    max-width: 620px;
+
+    margin:
+        18px auto
+        28px;
+}
+
+
+/* =====================================================
+    RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+
+    .docs-layout {
+        grid-template-columns: 1fr;
+    }
+
+
+    .docs-sidebar {
+        position: relative;
+
+        top: auto;
+    }
+
+
+    .docs-sidebar nav {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .docs-page {
+        width:
+            calc(100% - 28px);
+
+        padding-top: 55px;
+    }
+
+
+    .docs-hero {
+        margin-bottom: 60px;
+    }
+
+
+    .docs-hero h1 {
+        letter-spacing: -2.7px;
+    }
+
+
+    .conversion-grid,
+    .concept-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .docs-sidebar nav {
+        grid-template-columns: 1fr;
+    }
+
+
+    .step {
+        grid-template-columns:
+            36px
+            1fr;
+    }
+
+
+    .step-number {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .docs-code pre,
+    .conversion-card pre {
+        font-size: 11px;
+    }
+
+}

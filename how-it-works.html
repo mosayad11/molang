@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn MoLang from scratch. Understand pages, elements, attributes, styles, scripts and how MoLang converts your code into real HTML, CSS and JavaScript."
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <title>Learning — MoLang</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="how-it-works.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="background">
+
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span class="logo-mark">
+                    M
+                </span>
+
+                <span class="logo-text">
+                    MoLang
+                </span>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html#features">
+                    Features
+                </a>
+
+                <a href="index.html#example">
+                    Examples
+                </a>
+
+                <a href="index.html#syntax">
+                    Syntax
+                </a>
+
+                <a href="how-it-works.html">
+                    Learn MoLang Now
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a
+                    href="downloads/MoLangSetup.exe"
+                    class="nav-download"
+                    download
+                >
+                    Download
+                </a>
+
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation menu"
+                    type="button"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#getting-started">
+                Getting Started
+            </a>
+
+            <a href="#page">
+                Pages
+            </a>
+
+            <a href="#style">
+                Styles
+            </a>
+
+            <a href="#convert">
+                Convert Code
+            </a>
+
+            <a
+                href="downloads/MoLangSetup.exe"
+                class="mobile-download"
+                download
+            >
+                Download MoLang
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         DOCUMENTATION
+    ====================================================== -->
+
+    <main class="docs-page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="docs-hero">
+
+            <div class="docs-badge">
+                MoLang Documentation
+            </div>
+
+
+            <h1>
+
+                Learn MoLang
+
+                <span class="gradient-text">
+                    from zero.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                You do not need to know HTML, CSS or JavaScript
+                before learning MoLang.
+
+                This guide starts from the beginning and explains
+                what pages, elements, attributes, styles and
+                scripts are, how to write them in MoLang, and
+                how your MoLang code becomes real web code.
+
+            </p>
+
+
+            <div class="docs-hero-actions">
+
+                <a
+                    href="#getting-started"
+                    class="primary-button"
+                >
+                    Start Learning
+                    <span>↓</span>
+                </a>
+
+
+                <a
+                    href="downloads/MoLangSetup.exe"
+                    class="secondary-button"
+                    download
+                >
+                    Download MoLang
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LAYOUT
+        ================================================== -->
+
+        <div class="docs-layout">
+
+
+            <!-- =============================================
+                 SIDEBAR
+            ============================================== -->
+
+            <aside class="docs-sidebar">
+
+                <div class="docs-sidebar-title">
+                    On this page
+                </div>
+
+
+                <nav>
+
+                    <a href="#getting-started">
+                        Getting Started
+                    </a>
+
+                    <a href="#file-types">
+                        Page, Style & Script
+                    </a>
+
+                    <a href="#page">
+                        Creating a Page
+                    </a>
+
+                    <a href="#elements">
+                        Elements
+                    </a>
+
+                    <a href="#indentation">
+                        Indentation
+                    </a>
+
+                    <a href="#attributes">
+                        Attributes
+                    </a>
+
+                    <a href="#text">
+                        Text & Values
+                    </a>
+
+                    <a href="#style">
+                        Styling
+                    </a>
+
+                    <a href="#script">
+                        JavaScript
+                    </a>
+
+                    <a href="#files">
+                        Connecting Files
+                    </a>
+
+                    <a href="#convert">
+                        Convert to Real Code
+                    </a>
+
+                    <a href="#first-project">
+                        First Project
+                    </a>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- =============================================
+                 MAIN CONTENT
+            ============================================== -->
+
+            <div class="docs-content">
+
+
+                <!-- =========================================
+                     GETTING STARTED
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="getting-started"
+                >
+
+                    <span class="docs-section-number">
+                        01 — GETTING STARTED
+                    </span>
+
+
+                    <h2>
+                        What is MoLang?
+                    </h2>
+
+
+                    <p>
+
+                        MoLang is a language for creating web
+                        pages.
+
+                        When you write MoLang, your code is
+                        translated into the languages that web
+                        browsers understand.
+
+                    </p>
+
+
+                    <div class="concept-grid">
+
+                        <div class="concept-card">
+
+                            <h4>
+                                Page
+                            </h4>
+
+                            <p>
+
+                                Describes the content and
+                                structure of a web page, such as
+                                headings, paragraphs, images and
+                                sections.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                Style
+                            </h4>
+
+                            <p>
+
+                                Controls how your page looks:
+                                colors, spacing, sizes,
+                                backgrounds, borders and more.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                Script
+                            </h4>
+
+                            <p>
+
+                                Adds behavior and logic to the
+                                page, such as responding to
+                                clicks and changing content.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                Real web code
+                            </h4>
+
+                            <p>
+
+                                At run time, MoLang converts your
+                                code to HTML, CSS and JavaScript.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <strong>
+                            The important idea
+                        </strong>
+
+                        You write simpler MoLang syntax.
+                        MoLang handles the translation into real
+                        browser code for you.
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     FILE TYPES
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="file-types"
+                >
+
+                    <span class="docs-section-number">
+                        02 — FILE TYPE
+                    </span>
+
+
+                    <h2>
+                        Every file tells MoLang what it is.
+                    </h2>
+
+
+                    <p>
+
+                        The first thing in every MoLang file must
+                        tell the translator what type of code
+                        you are writing.
+
+                    </p>
+
+
+                    <p>
+                        There are currently three main types:
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            File types
+                        </div>
+
+<pre><code><span class="tag">page</span>
+
+<span class="tag">style</span>
+
+<span class="tag">script</span></code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        page
+                    </h3>
+
+
+                    <p>
+
+                        Use <code class="inline">page</code>
+                        when you want to create the structure
+                        and content of a web page.
+
+                    </p>
+
+
+                    <h3>
+                        style
+                    </h3>
+
+
+                    <p>
+
+                        Use <code class="inline">style</code>
+                        when the file contains visual styling.
+
+                    </p>
+
+
+                    <h3>
+                        script
+                    </h3>
+
+
+                    <p>
+
+                        Use <code class="inline">script</code>
+                        when the file contains JavaScript logic.
+
+                    </p>
+
+
+                    <div class="warning-box info-box">
+
+                        <strong>
+                            Required
+                        </strong>
+
+                        A MoLang file must begin with one of these
+                        types. If it does not, the MoLang
+                        extension can report an error because the
+                        translator does not know what kind of
+                        code it should generate.
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     PAGE
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="page"
+                >
+
+                    <span class="docs-section-number">
+                        03 — PAGE
+                    </span>
+
+
+                    <h2>
+                        Create your first page.
+                    </h2>
+
+
+                    <p>
+
+                        A page is made from
+                        <strong>elements</strong>.
+
+                        An element represents something on the
+                        page.
+
+                    </p>
+
+
+                    <p>
+
+                        For example, a heading, paragraph, image,
+                        button, section or link can all be
+                        elements.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            index.mo
+                        </div>
+
+<pre><code><span class="tag">page</span>.
+    <span class="tag">head</span>.
+        <span class="tag">title</span>. My page
+
+    <span class="tag">body</span>.
+        <span class="tag">h1</span>. Hello 👋
+        <span class="tag">p</span>. Welcome to my first page</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        This creates a page with a title,
+                        a large heading and a paragraph.
+
+                    </p>
+
+
+                    <h3>
+                        You do not need to write html
+                    </h3>
+
+
+                    <p>
+
+                        You may notice that the example starts
+                        directly with
+                        <code class="inline">head</code>
+                        and
+                        <code class="inline">body</code>.
+
+                    </p>
+
+
+                    <p>
+
+                        MoLang automatically creates the outer
+                        HTML structure around your page, so you
+                        do not need to manually write an
+                        <code class="inline">html</code>
+                        element.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     ELEMENTS
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="elements"
+                >
+
+                    <span class="docs-section-number">
+                        04 — ELEMENTS
+                    </span>
+
+
+                    <h2>
+                        Elements are the building blocks.
+                    </h2>
+
+
+                    <p>
+
+                        Think of a page as a tree.
+
+                        Some elements contain other elements,
+                        while some simply contain text or point
+                        to a resource such as an image.
+
+                    </p>
+
+
+                    <div class="concept-grid">
+
+                        <div class="concept-card">
+
+                            <h4>
+                                h1
+                            </h4>
+
+                            <p>
+                                A large main heading.
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                p
+                            </h4>
+
+                            <p>
+                                A paragraph of text.
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                img
+                            </h4>
+
+                            <p>
+                                Displays an image.
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                main
+                            </h4>
+
+                            <p>
+                                Holds the main content of a page.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        The dot
+                    </h3>
+
+
+                    <p>
+
+                        When you create an element that may
+                        contain text or children, you finish the
+                        element declaration with a dot.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Element examples
+                        </div>
+
+<pre><code><span class="tag">h1</span>. Hello
+
+<span class="tag">main</span>.
+    <span class="tag">p</span>. Hello from inside main</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        In the first example,
+                        <code class="inline">Hello</code>
+                        is the value of the heading.
+
+                    </p>
+
+
+                    <p>
+
+                        In the second example,
+                        <code class="inline">main</code>
+                        contains another element underneath it.
+
+                    </p>
+
+
+                    <h3>
+                        Elements that do not need children
+                    </h3>
+
+
+                    <p>
+
+                        Some elements do not normally contain
+                        other elements.
+
+                        An image is a good example.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Image
+                        </div>
+
+<pre><code><span class="tag">img</span> <span class="attr">src</span>=<span class="str">"mosayad.jpg"</span></code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        Because the image does not need children,
+                        the final dot is not important here.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     INDENTATION
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="indentation"
+                >
+
+                    <span class="docs-section-number">
+                        05 — INDENTATION
+                    </span>
+
+
+                    <h2>
+                        Indentation tells MoLang what belongs where.
+                    </h2>
+
+
+                    <p>
+
+                        Indentation means moving a line to the
+                        right.
+
+                        In MoLang, indentation is not just for
+                        appearance. It describes the
+                        relationship between elements.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Parent and children
+                        </div>
+
+<pre><code><span class="tag">body</span>.
+    <span class="tag">main</span>.
+        <span class="tag">h1</span>. Hello
+        <span class="tag">p</span>. Welcome</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        Here,
+                        <code class="inline">main</code>
+                        is inside
+                        <code class="inline">body</code>.
+
+                    </p>
+
+
+                    <p>
+
+                        The
+                        <code class="inline">h1</code>
+                        and
+                        <code class="inline">p</code>
+                        are inside
+                        <code class="inline">main</code>.
+
+                    </p>
+
+
+                    <p>
+
+                        This parent/child relationship is created
+                        entirely by indentation.
+
+                    </p>
+
+
+                    <div class="info-box">
+
+                        <strong>
+                            Easy way to think about it
+                        </strong>
+
+                        If a line belongs inside the line above
+                        it, move it one indentation level to the
+                        right.
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     ATTRIBUTES
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="attributes"
+                >
+
+                    <span class="docs-section-number">
+                        06 — ATTRIBUTES
+                    </span>
+
+
+                    <h2>
+                        Give elements more information.
+                    </h2>
+
+
+                    <p>
+
+                        An attribute is additional information
+                        attached to an element.
+
+                    </p>
+
+
+                    <p>
+
+                        For example, an image needs to know which
+                        image file it should display.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Image source
+                        </div>
+
+<pre><code><span class="tag">img</span> <span class="attr">src</span>=<span class="str">"mosayad.jpg"</span></code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        Here,
+                        <code class="inline">src</code>
+                        is an attribute.
+
+                    </p>
+
+
+                    <p>
+
+                        Its value is
+                        <code class="inline">"mosayad.jpg"</code>.
+
+                    </p>
+
+
+                    <h3>
+                        Classes
+                    </h3>
+
+
+                    <p>
+
+                        A class gives an element a name that can
+                        later be used when styling it.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Class attribute
+                        </div>
+
+<pre><code><span class="tag">main</span> <span class="attr">class</span>=<span class="str">"card"</span>.
+    <span class="tag">h1</span>. Hello
+    <span class="tag">p</span>. Welcome</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        The main element now has the class
+                        <code class="inline">card</code>.
+
+                    </p>
+
+
+                    <p>
+
+                        Later, you can style
+                        <code class="inline">.card</code>
+                        in a style file.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     TEXT
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="text"
+                >
+
+                    <span class="docs-section-number">
+                        07 — TEXT
+                    </span>
+
+
+                    <h2>
+                        Put text directly after the dot.
+                    </h2>
+
+
+                    <p>
+
+                        If an element has one simple text value,
+                        you can place that value directly after
+                        the dot.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Text
+                        </div>
+
+<pre><code><span class="tag">h1</span>. Welcome to MoLang
+
+<span class="tag">p</span>. This is a paragraph
+
+<span class="tag">p</span>. مرحبا بالعالم</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        The text can be English, Arabic or other
+                        normal text supported by your file.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     STYLE
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="style"
+                >
+
+                    <span class="docs-section-number">
+                        08 — STYLE
+                    </span>
+
+
+                    <h2>
+                        Make your page look the way you want.
+                    </h2>
+
+
+                    <p>
+
+                        A style file controls the appearance of
+                        your page.
+
+                    </p>
+
+
+                    <p>
+
+                        It can change colors, backgrounds,
+                        spacing, borders, sizes and many other
+                        visual properties.
+
+                    </p>
+
+
+                    <p>
+
+                        Start the file with
+                        <code class="inline">style</code>.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            style.mo
+                        </div>
+
+<pre><code><span class="tag">style</span>
+
+<span class="tag">body</span>
+    <span class="prop">background</span>: <span class="val">linear-gradient(90deg, #ff7e5f, #feb47b)</span>
+
+<span class="tag">body h1</span>
+    <span class="prop">color</span>: <span class="val">red</span>
+    <span class="prop">background-color</span>: <span class="val">#000</span>
+
+<span class="tag">body h2</span>
+    <span class="prop">color</span>: <span class="val">blue</span>
+
+<span class="tag">body p</span>
+    <span class="prop">color</span>: <span class="val">black</span>
+
+<span class="tag">.header-section</span>
+    <span class="prop">border-radius</span>: <span class="val">40px</span></code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Selectors
+                    </h3>
+
+
+                    <p>
+
+                        A selector tells MoLang which element or
+                        group of elements you want to style.
+
+                    </p>
+
+
+                    <div class="concept-grid">
+
+                        <div class="concept-card">
+
+                            <h4>
+                                body
+                            </h4>
+
+                            <p>
+                                Selects the whole page body.
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                body h1
+                            </h4>
+
+                            <p>
+                                Selects h1 elements inside body.
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                .card
+                            </h4>
+
+                            <p>
+                                Selects elements with class="card".
+                            </p>
+
+                        </div>
+
+
+                        <div class="concept-card">
+
+                            <h4>
+                                #header
+                            </h4>
+
+                            <p>
+                                Selects an element with the matching ID.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Properties
+                    </h3>
+
+
+                    <p>
+
+                        Properties describe what you want to
+                        change.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Style properties
+                        </div>
+
+<pre><code><span class="prop">color</span>: <span class="val">red</span>
+<span class="prop">background-color</span>: <span class="val">black</span>
+<span class="prop">padding</span>: <span class="val">40px</span>
+<span class="prop">border-radius</span>: <span class="val">20px</span></code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        You do not need curly braces around the
+                        properties and you do not need a
+                        semicolon after every property.
+
+                    </p>
+
+
+                    <p>
+
+                        Put the properties below the selector
+                        using indentation.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     SCRIPT
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="script"
+                >
+
+                    <span class="docs-section-number">
+                        09 — SCRIPT
+                    </span>
+
+
+                    <h2>
+                        Add behavior with scripts.
+                    </h2>
+
+
+                    <p>
+
+                        Script files contain the logic that makes
+                        your page interactive.
+
+                    </p>
+
+
+                    <p>
+
+                        For example, scripts can react when a
+                        user clicks a button, update text or
+                        perform calculations.
+
+                    </p>
+
+
+                    <p>
+
+                        At the moment, MoLang script files use
+                        normal JavaScript syntax.
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            script.mo
+                        </div>
+
+<pre><code><span class="tag">script</span>
+
+const button = document.querySelector("button");
+
+button.addEventListener("click", function () {
+    alert("Hello from MoLang!");
+});</code></pre>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <strong>
+                            Script syntax is evolving
+                        </strong>
+
+                        For now, only the first
+                        <code class="inline">script</code>
+                        declaration is MoLang-specific.
+                        The JavaScript code below it is written
+                        normally.
+
+                        A simpler MoLang script syntax can be
+                        introduced in future versions.
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     CONNECT FILES
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="files"
+                >
+
+                    <span class="docs-section-number">
+                        10 — CONNECTING FILES
+                    </span>
+
+
+                    <h2>
+                        Split your project into multiple files.
+                    </h2>
+
+
+                    <p>
+
+                        A real project does not need to keep
+                        everything inside one file.
+
+                    </p>
+
+
+                    <p>
+
+                        You can create a page file, a style file
+                        and a script file and connect them
+                        together.
+
+                    </p>
+
+
+                    <h3>
+                        Add a stylesheet
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Inside the page head
+                        </div>
+
+<pre><code><span class="tag">head</span>.
+    <span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.mo"</span></code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        MoLang can also link to a normal CSS file:
+
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Normal CSS
+                        </div>
+
+<pre><code><span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.css"</span></code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Add a script
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            MoLang script file
+                        </div>
+
+<pre><code><span class="tag">script</span> <span class="attr">src</span>=<span class="str">"script.mo"</span>.</code></pre>
+
+                    </div>
+
+
+                    <p>
+                        Or use normal JavaScript:
+                    </p>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            JavaScript file
+                        </div>
+
+<pre><code><span class="tag">script</span> <span class="attr">src</span>=<span class="str">"script.js"</span>.</code></pre>
+
+                    </div>
+
+
+                    <div class="warning-box info-box">
+
+                        <strong>
+                            Notice the final dot
+                        </strong>
+
+                        When writing the
+                        <code class="inline">script</code>
+                        element in a page, keep the final dot
+                        after it.
+
+                        This tells the translator that the line
+                        represents an element declaration rather
+                        than plain text.
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     CONVERSION
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="convert"
+                >
+
+                    <span class="docs-section-number">
+                        11 — REAL WEB CODE
+                    </span>
+
+
+                    <h2>
+                        Your MoLang becomes real web code.
+                    </h2>
+
+
+                    <p>
+
+                        MoLang is designed to generate the web
+                        languages that browsers understand.
+
+                    </p>
+
+
+                    <p>
+
+                        This means you can write your project in
+                        MoLang and still access the generated
+                        HTML, CSS and JavaScript when you need
+                        them.
+
+                    </p>
+
+
+                    <h3>
+                        Page example
+                    </h3>
+
+
+                    <div class="conversion-grid">
+
+                        <div class="conversion-card">
+
+                            <div class="conversion-title">
+                                MoLang
+                            </div>
+
+<pre><code>page.
+    head.
+        title. My page
+
+    body.
+        main class="card".
+            h1. Hello 👋
+            p. مرحبا بالعالم</code></pre>
+
+                        </div>
+
+
+                        <div class="conversion-card">
+
+                            <div class="conversion-title">
+                                Generated HTML
+                            </div>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My page&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;main class="card"&gt;
+            &lt;h1&gt;Hello 👋&lt;/h1&gt;
+            &lt;p&gt;مرحبا بالعالم&lt;/p&gt;
+        &lt;/main&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Style example
+                    </h3>
+
+
+                    <div class="conversion-grid">
+
+                        <div class="conversion-card">
+
+                            <div class="conversion-title">
+                                MoLang
+                            </div>
+
+<pre><code>style
+
+body
+    color: #18202b
+    padding: 40px</code></pre>
+
+                        </div>
+
+
+                        <div class="conversion-card">
+
+                            <div class="conversion-title">
+                                Generated CSS
+                            </div>
+
+<pre><code>body {
+    color: #18202b;
+    padding: 40px;
+}</code></pre>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Preview your project
+                    </h3>
+
+
+                    <p>
+
+                        Use the MoLang tools inside VS Code to
+                        run or preview your project.
+
+                    </p>
+
+
+                    <h3>
+                        View the generated code
+                    </h3>
+
+
+                    <p>
+
+                        If you want the real HTML, CSS or
+                        JavaScript generated from your MoLang
+                        file, use the
+                        <strong>MoLang: View Code</strong>
+                        command.
+
+                    </p>
+
+
+                    <p>
+
+                        You can then copy the generated code and
+                        use it in another normal web project if
+                        you want.
+
+                    </p>
+
+
+                    <div class="steps">
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                1
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Open your MoLang file
+                                </h4>
+
+                                <p>
+                                    Open the page, style or script
+                                    file you want to convert.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                2
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Run View Code
+                                </h4>
+
+                                <p>
+
+                                    Open the VS Code Command
+                                    Palette and choose
+                                    MoLang: View Code.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                3
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    See the generated code
+                                </h4>
+
+                                <p>
+
+                                    MoLang shows the real web code
+                                    created from your file.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                4
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Copy it anywhere
+                                </h4>
+
+                                <p>
+
+                                    Copy the generated code and
+                                    place it in a normal HTML,
+                                    CSS or JavaScript project.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     FIRST PROJECT
+                ========================================== -->
+
+                <section
+                    class="docs-section"
+                    id="first-project"
+                >
+
+                    <span class="docs-section-number">
+                        12 — FIRST PROJECT
+                    </span>
+
+
+                    <h2>
+                        Build a complete small project.
+                    </h2>
+
+
+                    <p>
+
+                        Let's combine everything you've learned
+                        into a simple MoLang website.
+
+                    </p>
+
+
+                    <h3>
+                        Step 1 — index.mo
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            index.mo
+                        </div>
+
+<pre><code><span class="tag">page</span>.
+    <span class="tag">head</span>.
+        <span class="tag">title</span>. My first MoLang website
+        <span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.mo"</span>
+
+    <span class="tag">body</span>.
+        <span class="tag">main</span> <span class="attr">class</span>=<span class="str">"card"</span>.
+            <span class="tag">h1</span>. Welcome 👋
+            <span class="tag">p</span>. This page was written with MoLang
+            <span class="tag">img</span> <span class="attr">src</span>=<span class="str">"mosayad.jpg"</span>
+
+        <span class="tag">script</span> <span class="attr">src</span>=<span class="str">"script.mo"</span>.</code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Step 2 — style.mo
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            style.mo
+                        </div>
+
+<pre><code><span class="tag">style</span>
+
+<span class="tag">body</span>
+    <span class="prop">background</span>: <span class="val">#080b12</span>
+    <span class="prop">color</span>: <span class="val">white</span>
+    <span class="prop">padding</span>: <span class="val">40px</span>
+
+<span class="tag">.card</span>
+    <span class="prop">padding</span>: <span class="val">30px</span>
+    <span class="prop">border-radius</span>: <span class="val">20px</span>
+    <span class="prop">background-color</span>: <span class="val">#18202b</span>
+
+<span class="tag">.card img</span>
+    <span class="prop">width</span>: <span class="val">200px</span></code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Step 3 — script.mo
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            script.mo
+                        </div>
+
+<pre><code><span class="tag">script</span>
+
+console.log("My MoLang project is running!");</code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Project structure
+                    </h3>
+
+
+                    <div class="docs-code">
+
+                        <div class="docs-code-header">
+                            Files
+                        </div>
+
+<pre><code>my-project/
+│
+├── index.mo
+├── style.mo
+├── script.mo
+└── mosayad.jpg</code></pre>
+
+                    </div>
+
+
+                    <p>
+
+                        Your page file describes the structure,
+                        your style file controls the appearance,
+                        and your script file contains the logic.
+
+                    </p>
+
+
+                    <p>
+
+                        MoLang connects these pieces and converts
+                        them into the web code needed to run the
+                        project.
+
+                    </p>
+
+                </section>
+
+
+                <!-- =========================================
+                     FINISH
+                ========================================== -->
+
+                <section class="finish-card">
+
+                    <span class="section-label">
+                        YOU'RE READY
+                    </span>
+
+
+                    <h2>
+
+                        Start building with
+
+                        <span class="gradient-text">
+                            MoLang.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        You now know the core ideas behind
+                        pages, elements, indentation, attributes,
+                        styles, scripts, linked files and code
+                        conversion.
+
+                    </p>
+
+
+                    <a
+                        href="downloads/MoLangSetup.exe"
+                        class="primary-button"
+                        download
+                    >
+                        ↓ Download MoLang
+                    </a>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <span class="logo-mark">
+                        MO
+                    </span>
+
+                    <span class="logo-text">
+                        MoLang
+                    </span>
+
+                </a>
+
+                <p>
+                    Code differently.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+
+                    <h4>
+                        Product
+                    </h4>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="index.html#features">
+                        Features
+                    </a>
+
+                    <a href="index.html#syntax">
+                        Syntax
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Learn
+                    </h4>
+
+                    <a href="#getting-started">
+                        Getting Started
+                    </a>
+
+                    <a href="#page">
+                        Page
+                    </a>
+
+                    <a href="#style">
+                        Style
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Download
+                    </h4>
+
+                    <a
+                        href="downloads/MoLangSetup.exe"
+                        download
+                    >
+                        Windows
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="currentYear"></span>
+                MoLang. All rights reserved.
+            </span>
+
+            <span>
+                Made for developers.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
