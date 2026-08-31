@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MoLang Academy</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+  <div class="brand"><div class="logo">M<span>.</span></div><div><strong>MoLang</strong><small>ACADEMY</small></div></div>
+  <nav class="top-actions"><a href="#start">Start here</a><a href="#reference">Reference</a></nav>
+</header>
+
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-title">LEARNING PATH</div>
+  <a class="nav active" href="#home">⌂ Home</a>
+  <a class="nav" href="#start">✦ Start Here</a>
+  <div class="group">PAGE</div>
+  <a class="nav" href="#page-basics">Basics</a><a class="nav" href="#page-elements">Elements</a><a class="nav" href="#page-attributes">Attributes</a><a class="nav" href="#page-forms">Forms</a><a class="nav" href="#page-media">Media</a><a class="nav" href="#page-semantic">Page structure</a>
+  <div class="group">STYLE</div>
+  <a class="nav" href="#style-basics">Basics</a><a class="nav" href="#style-selectors">Selectors</a><a class="nav" href="#style-layout">Layout</a><a class="nav" href="#style-flex">Flexbox</a><a class="nav" href="#style-grid">Grid</a><a class="nav" href="#style-visual">Visual</a><a class="nav" href="#style-text">Typography</a><a class="nav" href="#style-animation">Motion</a><a class="nav" href="#style-responsive">Responsive</a>
+  <div class="group">SCRIPT</div>
+  <a class="nav" href="#script-basics">Basics</a><a class="nav" href="#script-variables">Variables</a><a class="nav" href="#script-types">Data types</a><a class="nav" href="#script-operators">Operators</a><a class="nav" href="#script-conditions">Conditions</a><a class="nav" href="#script-loops">Loops</a><a class="nav" href="#script-functions">Functions</a><a class="nav" href="#script-dom">Page control</a><a class="nav" href="#script-events">Events</a><a class="nav" href="#reference">Full reference</a>
+</aside>
+
+<main class="content">
+<section id="home" class="hero">
+  <div class="eyebrow">LEARN FROM ZERO</div>
+  <h1>Learn <span>MoLang</span><br>step by step.</h1>
+  <p>A complete beginner-friendly guide to building pages, styling them, and making them interactive — using only MoLang while you learn.</p>
+  <div class="hero-actions"><a class="btn primary" href="#start">Start learning →</a><a class="btn" href="#reference">Open reference</a></div>
+  <div class="workflow"><div><b>1</b><strong>Write</strong><span>Create a .mo, .molang or .mosayad file.</span></div><div><b>2</b><strong>Choose mode</strong><span>Start with page, style, or script.</span></div><div><b>3</b><strong>Run</strong><span>Shift + R runs your project.</span></div></div>
+</section>
+
+<section id="start">
+<h2>Start here</h2>
+<p class="lead">MoLang has three learning areas. The first line tells the compiler what the file contains.</p>
+<div class="cards">
+<div class="card"><span class="pill page">PAGE</span><h3>Build what people see</h3><p>Elements, text, links, images, forms, media, and page structure.</p><a href="#page-basics">Learn PAGE →</a></div>
+<div class="card"><span class="pill style">STYLE</span><h3>Control appearance</h3><p>Selectors, colors, spacing, layout, Flexbox, Grid, and responsive design.</p><a href="#style-basics">Learn STYLE →</a></div>
+<div class="card"><span class="pill script">SCRIPT</span><h3>Make things happen</h3><p>Variables, logic, loops, functions, page control, and events.</p><a href="#script-basics">Learn SCRIPT →</a></div>
+</div>
+<div class="note"><strong>VS Code workflow</strong><br><kbd>Shift + R</kbd> Run your MoLang project. <kbd>Shift + C</kbd> View generated code when debugging or doing advanced work. Beginners can learn everything below without needing to read generated code.</div>
+</section>
+
+<section id="page-basics"><h2>PAGE — the basics</h2>
+<p class="lead">PAGE is where you describe the content and structure of what appears on a page.</p>
+<div class="lesson"><h3>1. Start the file</h3><p>Put <b>page</b> on the first line. This tells MoLang that the file contains page content.</p><pre data-lang="page">page
+
+h1. Hello MoLang
+p. I am learning from zero.</pre></div>
+<div class="lesson"><h3>2. What is an element?</h3><p>An element is a named piece of the page. For example, <b>h1</b> is a main heading and <b>p</b> is a paragraph. Put a dot directly after the element when you want to put text on that same line.</p><pre data-lang="page">page
+
+h1. My first title
+p. This is a paragraph.</pre><div class="tip">The dot belongs to the MoLang syntax. Keep it attached to the element or directly after the final attribute.</div></div>
+<div class="lesson"><h3>3. What does indentation mean?</h3><p>Indentation shows that one element belongs inside another. When indentation returns to an earlier level, the previous nested block ends.</p><pre data-lang="page">page
+
+section
+    h1. Welcome
+    p. Everything inside here belongs to the section.
+
+footer
+    p. The section is now finished.</pre></div>
+</section>
+
+<section id="page-elements"><h2>PAGE elements</h2><p class="lead">Use elements to give each piece of content a purpose.</p>
+<div class="table-wrap"><table><thead><tr><th>Element</th><th>Purpose</th><th>When to use it</th></tr></thead><tbody>
+<tr><td>h1</td><td>Main page heading</td><td>Usually the most important title.</td></tr><tr><td>h2–h6</td><td>Smaller headings</td><td>Organize content into levels.</td></tr><tr><td>p</td><td>Paragraph</td><td>Normal readable text.</td></tr><tr><td>div</td><td>General container</td><td>Group items when no more meaningful element fits.</td></tr><tr><td>span</td><td>Small inline container</td><td>Target a small part of text.</td></tr><tr><td>a</td><td>Link</td><td>Move to another page or location.</td></tr><tr><td>button</td><td>Action control</td><td>Something the user can press.</td></tr><tr><td>ul / ol / li</td><td>Lists</td><td>Groups of related items.</td></tr><tr><td>br</td><td>Line break</td><td>Force a new line inside text.</td></tr><tr><td>hr</td><td>Topic break</td><td>Separate sections of content.</td></tr>
+</tbody></table></div>
+<div class="lesson"><h3>Headings and paragraphs</h3><pre data-lang="page">page
+
+h1. The biggest heading
+h2. A section heading
+h3. A smaller heading
+
+p. This explains the current topic.</pre></div>
+<div class="lesson"><h3>Links</h3><p><b>href</b> tells a link where to go. <b>target</b> can control where it opens.</p><pre data-lang="page">page
+
+a href="https://example.com". Visit Example
+a href="https://example.com" target="_blank". Open in a new tab</pre></div>
+<div class="lesson"><h3>Lists</h3><pre data-lang="page">page
+
+ul
+    li. First item
+    li. Second item
+    li. Third item
+
+ol
+    li. Step one
+    li. Step two
+    li. Step three</pre></div>
+</section>
+
+<section id="page-attributes"><h2>Attributes</h2><p class="lead">An attribute gives extra information or configuration to an element. Attributes are written after the element name.</p>
+<div class="lesson"><h3>Basic pattern</h3><pre data-lang="page">element attribute="value". Text</pre><p>Some attributes are switches. For example, <b>required</b> means the field must be filled in.</p><pre data-lang="page">input type="email" placeholder="name@example.com" required</pre>
+<ul class="details"><li><b>id</b> — gives one element a unique name.</li><li><b>class</b> — gives an element one or more reusable labels for styling or scripting.</li><li><b>title</b> — provides extra descriptive text.</li><li><b>hidden</b> — starts the element hidden.</li><li><b>data-*</b> — stores your own custom data.</li></ul></div>
+</section>
+
+<section id="page-forms"><h2>Forms and user input</h2><p class="lead">Forms collect information from users.</p>
+<div class="lesson"><h3>Common controls</h3><div class="table-wrap"><table><thead><tr><th>Element</th><th>Important attributes</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>input</td><td>type, name, value, placeholder, required, disabled</td><td>One-line input.</td></tr><tr><td>textarea</td><td>name, rows, cols, placeholder</td><td>Long text.</td></tr><tr><td>select</td><td>name, required</td><td>Choose from options.</td></tr><tr><td>option</td><td>value, selected, disabled</td><td>A choice inside select.</td></tr><tr><td>label</td><td>for</td><td>Describes an input.</td></tr><tr><td>form</td><td>action, method</td><td>Groups controls together.</td></tr></tbody></table></div>
+<pre data-lang="page">page
+
+form
+    label for="email". Email address
+    input id="email" type="email" placeholder="name@example.com" required
+    button type="submit". Send</pre></div>
+<div class="lesson"><h3>Useful input types</h3><p>Text, email, password, number, date, time, checkbox, radio, file, range, color, search, url, and submit are common choices. The <b>type</b> changes what kind of value the control is designed to accept.</p></div>
+</section>
+
+<section id="page-media"><h2>Images and media</h2>
+<div class="lesson"><h3>Images</h3><pre data-lang="page">page
+
+img src="photo.jpg" alt="A beautiful photo" loading="lazy"</pre><ul class="details"><li><b>src</b> — image location.</li><li><b>alt</b> — text description when the image cannot be seen.</li><li><b>width / height</b> — intended dimensions.</li><li><b>loading</b> — controls loading behavior.</li></ul></div>
+<div class="lesson"><h3>Audio and video</h3><pre data-lang="page">page
+
+audio controls src="song.mp3"
+
+video controls width="640"
+    source src="movie.mp4" type="video/mp4"</pre><p><b>controls</b> shows built-in playback controls. Other useful options include autoplay, loop, muted, and poster for video.</p></div>
+</section>
+
+<section id="page-semantic"><h2>Meaningful page structure</h2><p class="lead">These elements describe the job of a region instead of only grouping content.</p>
+<div class="lesson"><pre data-lang="page">page
+
+header
+    nav
+        a href="#home". Home
+        a href="#about". About
+
+main
+    article
+        h1. Article title
+        p. Main article content.
+
+aside
+    p. Related information.
+
+footer
+    p. Copyright notice.</pre></div>
+<div class="table-wrap"><table><tbody><tr><td>header</td><td>Introductory content for a page or section.</td></tr><tr><td>nav</td><td>A group of navigation links.</td></tr><tr><td>main</td><td>The main content.</td></tr><tr><td>section</td><td>A meaningful topic group.</td></tr><tr><td>article</td><td>Self-contained content.</td></tr><tr><td>aside</td><td>Related or secondary content.</td></tr><tr><td>footer</td><td>Closing information.</td></tr><tr><td>details / summary</td><td>Expandable information.</td></tr></tbody></table></div>
+</section>
+
+<section id="style-basics"><h2>STYLE — the basics</h2><p class="lead">STYLE controls appearance. Indentation places properties inside a selector block.</p><pre data-lang="style">style
+
+card
+    padding: 20px
+    border-radius: 16px
+    background: white</pre><div class="lesson"><h3>Selector, property, value</h3><p><b>Selector</b> chooses what to style. <b>Property</b> chooses what to change. <b>Value</b> is the setting you give that property.</p></div></section>
+
+<section id="style-selectors"><h2>Selectors</h2><div class="table-wrap"><table><thead><tr><th>Selector</th><th>Selects</th></tr></thead><tbody>
+<tr><td>p</td><td>All paragraph elements.</td></tr><tr><td>.card</td><td>Elements with class card.</td></tr><tr><td>#menu</td><td>The element with id menu.</td></tr><tr><td>*</td><td>Everything.</td></tr><tr><td>article p</td><td>Paragraphs inside article.</td></tr><tr><td>article > p</td><td>Direct paragraph children.</td></tr><tr><td>a:hover</td><td>A link while hovered.</td></tr></tbody></table></div><pre data-lang="style">style
+
+.card
+    padding: 20px
+
+#menu
+    display: flex
+
+button:hover
+    transform: scale(1.05)</pre></section>
+
+<section id="style-layout"><h2>Layout</h2><div class="property-grid">
+<div><b>display</b><span>Chooses the layout behavior.</span></div><div><b>position</b><span>Controls positioning method.</span></div><div><b>top / right / bottom / left</b><span>Offsets positioned elements.</span></div><div><b>width / height</b><span>Controls size.</span></div><div><b>min-width / max-width</b><span>Sets size limits.</span></div><div><b>overflow</b><span>Controls content that does not fit.</span></div><div><b>z-index</b><span>Controls stacking order.</span></div></div>
+<pre data-lang="style">style
+
+.box
+    width: 300px
+    max-width: 100%
+    padding: 20px
+    overflow: auto</pre></section>
+
+<section id="style-flex"><h2>Flexbox</h2><p class="lead">Flexbox is useful for arranging items in one direction: a row or a column.</p><pre data-lang="style">style
+
+.menu
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    gap: 16px
+    flex-wrap: wrap</pre><ul class="details"><li><b>flex-direction</b> — row or column direction.</li><li><b>justify-content</b> — spacing along the main direction.</li><li><b>align-items</b> — alignment across the main direction.</li><li><b>gap</b> — space between items.</li><li><b>flex-wrap</b> — allows items to move to another line.</li><li><b>flex-grow / flex-shrink / flex-basis</b> — control how items use available space.</li></ul></section>
+
+<section id="style-grid"><h2>Grid</h2><p class="lead">Grid is excellent for two-dimensional layouts with rows and columns.</p><pre data-lang="style">style
+
+.gallery
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 20px</pre><p>Useful properties include <b>grid-template-columns</b>, <b>grid-template-rows</b>, <b>grid-column</b>, <b>grid-row</b>, <b>gap</b>, and <b>grid-template-areas</b>.</p></section>
+
+<section id="style-visual"><h2>Colors and visual styling</h2><pre data-lang="style">style
+
+.card
+    color: white
+    background: linear-gradient(135deg, #7c3aed, #06b6d4)
+    border: 1px solid #ffffff33
+    border-radius: 20px
+    box-shadow: 0 20px 50px #00000033
+    opacity: 0.95</pre><p>Learn these groups together: <b>color</b>, <b>background</b>, <b>border</b>, <b>border-radius</b>, <b>box-shadow</b>, <b>opacity</b>, <b>filter</b>, and <b>outline</b>.</p></section>
+
+<section id="style-text"><h2>Typography and spacing</h2><pre data-lang="style">style
+
+.title
+    font-family: Arial, sans-serif
+    font-size: 42px
+    font-weight: 700
+    line-height: 1.2
+    letter-spacing: -1px
+    text-align: center
+
+.text
+    margin: 0
+    padding: 16px</pre><p>Important text properties: font-family, font-size, font-weight, font-style, line-height, letter-spacing, word-spacing, text-align, text-decoration, text-transform, and white-space.</p></section>
+
+<section id="style-animation"><h2>Motion</h2><pre data-lang="style">style
+
+.button
+    transition: transform 0.2s ease
+
+.button:hover
+    transform: translateY(-2px)</pre><p>Use <b>transition</b> for smooth changes. Use <b>transform</b> for moving, scaling, rotating, or skewing. For repeated or complex motion, use animation and keyframes.</p></section>
+
+<section id="style-responsive"><h2>Responsive design</h2><p class="lead">Responsive design means your page adapts to different screen sizes.</p><pre data-lang="style">style
+
+.container
+    width: 90%
+    max-width: 1200px
+
+@media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}</pre><p>Useful units include px, %, rem, em, vw, vh, and fr. Start with a flexible layout, then use media queries when a specific screen size needs a change.</p></section>
+
+<section id="script-basics"><h2>SCRIPT — the basics</h2><p class="lead">SCRIPT gives instructions and reacts to what happens.</p><pre data-lang="script">script
+
+print "Hello, MoLang"
+
+message = "Welcome"
+count = 0</pre><p>Use <b>print</b> to output information for debugging and learning. Variables let you store values.</p></section>
+
+<section id="script-variables"><h2>Variables</h2><pre data-lang="script">script
+
+name = "Alex"
+score = 10
+
+score = score + 5
+print score</pre><ul class="details"><li>A variable has a name and a value.</li><li>Use a clear name that describes what the value means.</li><li>You can change a variable later by assigning a new value.</li></ul></section>
+
+<section id="script-types"><h2>Data types</h2><div class="table-wrap"><table><thead><tr><th>Type</th><th>Example</th><th>Meaning</th></tr></thead><tbody><tr><td>String</td><td>"Hello"</td><td>Text.</td></tr><tr><td>Number</td><td>42 or 3.14</td><td>A numeric value.</td></tr><tr><td>Boolean</td><td>True / False</td><td>True-or-false value.</td></tr><tr><td>Empty value</td><td>None</td><td>No value.</td></tr><tr><td>Array</td><td>[1, 2, 3]</td><td>An ordered collection.</td></tr><tr><td>Object</td><td>{ name: "A" }</td><td>A collection of named values.</td></tr></tbody></table></div></section>
+
+<section id="script-operators"><h2>Operators and expressions</h2><pre data-lang="script">script
+
+total = 10 + 5
+half = total / 2
+power = 2 ** 3
+
+if total > 10 and not False
+    print "Large enough"</pre><p>Arithmetic: +, -, *, /, %, **. Comparisons: ==, !=, >, <, >=, <=. Logic: and, or, not.</p></section>
+
+<section id="script-conditions"><h2>Conditions</h2><pre data-lang="script">script
+
+score = 85
+
+if score >= 90
+    print "Excellent"
+
+elif score >= 50
+    print "Passed"
+
+else
+    print "Try again"</pre><p><b>if</b> checks the first condition. <b>elif</b> gives another condition if earlier ones failed. <b>else</b> runs when no previous condition was true.</p></section>
+
+<section id="script-loops"><h2>Loops</h2><pre data-lang="script">script
+
+for i in range(5)
+    print i
+
+for i in range(10, 0, -1)
+    print i
+
+items = ["A", "B", "C"]
+
+for item in items
+    print item</pre><p><b>range(end)</b> starts at 0. <b>range(start, end)</b> uses a custom start. <b>range(start, end, step)</b> also controls the step. Use <b>break</b> to stop a loop and <b>continue</b> to skip to its next iteration.</p></section>
+
+<section id="script-functions"><h2>Functions and async work</h2><pre data-lang="script">script
+
+def greet(name)
+    print "Hello " + name
+
+greet("Alex")
+
+async def loadData()
+    await fetchData()
+    print "Finished"</pre><p>A function groups reusable instructions. Parameters receive information when the function is called. <b>return</b> sends a result back. Async functions can use <b>await</b> for asynchronous work.</p>
+<pre data-lang="script">script
+
+try
+    riskyWork()
+
+except error
+    print error
+
+finally
+    print "Always finished"</pre></section>
+
+<section id="script-dom"><h2>Page control</h2><p class="lead">These commands let SCRIPT find and change things on your page. You do not need to learn the generated language to understand them.</p>
+<div class="command-grid">
+<div><code>get "#title"</code><span>Find an existing page item.</span></div><div><code>set "#title" text to "Welcome"</code><span>Change visible text.</span></div><div><code>set "#box" html to "..."</code><span>Change inner content.</span></div><div><code>set "#email" value to "..."</code><span>Change an input value.</span></div><div><code>set "#box" style color to "red"</code><span>Change one visual setting.</span></div><div><code>show "#menu"</code><span>Make an item visible.</span></div><div><code>hide "#menu"</code><span>Hide an item.</span></div><div><code>remove "#item"</code><span>Remove an item.</span></div><div><code>focus "#email"</code><span>Put keyboard focus on a control.</span></div></div>
+<pre data-lang="script">script
+
+set "#title" text to "Welcome!"
+add class "active" to "#menu"
+toggle class "dark" on "body"</pre>
+<pre data-lang="script">script
+
+create div as card
+card.textContent = "New card"
+append card to "#container"</pre>
+<p>Class commands: <b>add class</b>, <b>remove class</b>, and <b>toggle class</b>. Creation commands: <b>create</b> and <b>append</b>.</p></section>
+
+<section id="script-events"><h2>Events</h2><p class="lead">An event is something that happens, such as a click, typing, a change, or form submission.</p><pre data-lang="script">script
+
+on "#button" click
+    print "Button clicked"
+
+on "#email" input as event
+    print event.target.value</pre><div class="table-wrap"><table><tbody><tr><td>click</td><td>The user presses and releases a pointing device button.</td></tr><tr><td>input</td><td>An input value changes while editing.</td></tr><tr><td>change</td><td>A value is committed or changed.</td></tr><tr><td>submit</td><td>A form is submitted.</td></tr><tr><td>keydown / keyup</td><td>A keyboard key is pressed or released.</td></tr><tr><td>mouseover / mouseout</td><td>The pointer enters or leaves.</td></tr></tbody></table></div></section>
+
+<section id="reference"><h2>Quick reference</h2><p class="lead">A compact map of the main MoLang vocabulary. Use the lessons above for explanations and examples.</p>
+<div class="reference"><div><h3>PAGE</h3><p>Headings, text, containers, links, lists, tables, forms, inputs, labels, select, option, images, audio, video, header, nav, main, section, article, aside, footer, details, summary.</p></div><div><h3>STYLE</h3><p>Selectors, colors, backgrounds, borders, spacing, sizing, display, position, Flexbox, Grid, typography, shadows, transforms, transitions, animation, media queries.</p></div><div><h3>SCRIPT</h3><p>print, variables, True, False, None, and, or, not, len, str, int, float, if, elif, else, while, for, range, def, async, await, try, except, finally, return, break, continue, get, set, class commands, show, hide, remove, create, append, focus, on.</p></div></div>
+</section>
+<footer class="site-footer">MoLang Academy — Learn the language first. Build with confidence later.</footer>
+</main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
