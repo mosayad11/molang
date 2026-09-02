@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Start Vibe Coding by MoLang</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #0f1117;
+            color: #ffffff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #6c8cff;
+        }
+
+        .hero p {
+            color: #a8adbd;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #363e55;
+            border: 1px solid #292e3c;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .notice {
+            background: #1d2332;
+            border-left: 4px solid #6c8cff;
+            padding: 15px 17px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+
+            color: #cbd0df;
+            line-height: 1.6;
+        }
+
+        .notice strong {
+            color: white;
+        }
+
+        textarea {
+            width: 100%;
+            height: 430px;
+
+            resize: vertical;
+
+            background: #0d0f14;
+            color: #dfe4f2;
+
+            border: 1px solid #303646;
+            border-radius: 10px;
+
+            padding: 18px;
+
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #6c8cff;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            flex: 1;
+
+            border: none;
+            border-radius: 9px;
+
+            padding: 13px 18px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background: #6c8cff;
+            color: white;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        button.secondary {
+            background: #292e3c;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 18px;
+
+            color: #777d8f;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 18px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            textarea {
+                height: 500px;
+                font-size: 13px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Start <span>Vibe</span> Coding by <span>MoLang</span></h1>
+
+            <p>
+                Teach your AI assistant MoLang once,
+                then let it build whatever you want.
+            </p>
+        </section>
+
+
+        <section class="card">
+
+            <div class="notice">
+                <strong>How to use this:</strong><br>
+
+                Copy the prompt below and send it to your
+                AI assistant. It will learn how MoLang works and how
+                it can be used. After that, ask your AI to build any
+                project you want using MoLang.
+            </div>
+
+
+            <textarea id="prompt" readonly># MoLang Language Reference
+MoLang is an indentation-first language for writing **HTML, CSS, and JavaScript** using a simpler syntax.
+You already know standard HTML, CSS, and JavaScript, so use your existing knowledge of them. MoLang mainly changes how they are written and adds a small set of convenient syntax features.
+A MoLang project can freely use **MoLang syntax together with normal HTML, CSS, and JavaScript**. If something is not supported by MoLang's special syntax, simply use the equivalent native HTML/CSS/JavaScript syntax.
+
+# 1. Page
+The `page.` section is used for HTML.
+HTML elements can be written using their normal HTML tag names, but indentation is used to represent nesting.
+Example:
+page.
+html
+    head
+        title. My Website
+    body
+        h1. Hello World
+        p. Welcome to my website.
+        button id="myButton". Click Me
+This represents normal HTML structure.
+HTML attributes are written using normal HTML attribute syntax:
+input type="text" placeholder="Enter your name"
+button id="login" class="btn". Login
+img src="image.png" alt="Image"
+Normal HTML syntax can also be used directly whenever needed:
+<div class="container">
+    <custom-element data-value="123"></custom-element>
+</div>
+### Text
+A `.` after the element/attributes is used to provide text content.
+h1. Hello
+p. This is a paragraph.
+button. Click Me
+The indentation below an element can instead be used for child elements:
+div.
+    h1. Title
+    p. Description
+    button. Click
+Void HTML elements such as `img`, `input`, `br`, `hr`, etc. can be written normally and are compiled appropriately.
+
+# 2. Style
+The `style.` section contains CSS.
+MoLang uses indentation to represent CSS nesting.
+Example:
+style.
+body
+    margin: 0
+    font-family: Arial
+    background: black
+    color: white
+.container
+    width: 80%
+    margin: auto
+    h1
+        font-size: 32px
+CSS properties use normal CSS syntax:
+color: red
+background-color: blue
+padding: 20px
+margin: 10px
+font-size: 18px
+The compiler automatically adds semicolons to MoLang CSS properties.
+Selectors can be normal CSS selectors:
+button
+    background: blue
+button:hover
+    background: darkblue
+#title
+    color: red
+.card .title
+    font-size: 20px
+You can also use native CSS blocks when you need something that is easier to write normally:
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+Native CSS is passed through normally.
+CSS custom properties are supported:
+--main-color: #00aaff
+body
+    color: var(--main-color)
+
+# 3. Script
+The `script.` section contains JavaScript.
+MoLang Script is where most of the custom syntax exists.
+The general idea is:
+**MoLang syntax → JavaScript**
+Indentation is used for MoLang blocks.
+
+## Comments
+A line beginning with `#` becomes a JavaScript comment.
+# This is a comment
+becomes:
+// This is a comment
+Normal JavaScript comments also work:
+// This is also a JavaScript comment
+
+# Variables
+Variables can be created simply by assigning a value:
+name = "Mohamed"
+age = 15
+score = 100
+They become:
+let name = "Mohamed";
+let age = 15;
+let score = 100;
+If the variable already exists, assigning to it does not create another `let`.
+score = 100
+score = 200
+becomes:
+let score = 100;
+score = 200;
+Compound assignments work:
+score += 10
+score -= 5
+score *= 2
+score /= 2
+score %= 2
+Increment/decrement:
+score++
+score--
+Property assignment is also supported:
+user.name = "Mohamed"
+element.style.color = "red"
+
+# Values and Expressions
+Some common Python-like values/operators are converted to JavaScript:
+True
+False
+None
+become:
+true
+false
+null
+Operators:
+and
+or
+not
+become:
+&&
+||
+!
+Examples:
+if age > 10 and age < 20
+    print "Teenager"
+if not loggedIn
+    print "Please login"
+
+# Built-in Expression Conversions
+These MoLang expressions are converted to their JavaScript equivalents:
+len(name) → (name).length
+str(value) → String(value)
+int(value) → parseInt(value, 10)
+float(value) → parseFloat(value)
+Exponentiation:
+2 ** 3 → Math.pow(2, 3)
+
+# Conditions
+Use `if` without requiring JavaScript braces:
+if age >= 18
+    print "Adult"
+JavaScript output:
+if (age >= 18) {
+    console.log("Adult");
+}
+`elif`:
+if age >= 18
+    print "Adult"
+elif age >= 13
+    print "Teen"
+else
+    print "Child"
+becomes JavaScript `if / else if / else`.
+A trailing `:` is optional:
+if age >= 18:
+    print "Adult"
+
+# Loops
+### While
+while count < 10
+    print count
+    count++
+becomes a JavaScript `while` block.
+### For / range
+for i in range(5)
+    print i
+means:
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+Two arguments:
+for i in range(1, 10)
+    print i
+Three arguments:
+for i in range(0, 10, 2)
+    print i
+Negative steps are supported:
+for i in range(10, 0, -1)
+    print i
+### Iterables
+for item in items
+    print item
+becomes:
+for (const item of items) {
+    console.log(item);
+}
+
+# Functions
+MoLang uses `def` instead of JavaScript's `function` keyword.
+def greet(name)
+    print "Hello " + name
+becomes:
+function greet(name) {
+    console.log("Hello " + name);
+}
+Return values:
+def add(a, b)
+    return a + b
+Async functions:
+async def loadData()
+    data = await fetch("/data.json")
+    return data
+becomes an async JavaScript function.
+
+# Async Blocks
+MoLang also supports:
+async
+    print "Loading..."
+    await someFunction()
+This creates an async JavaScript immediately-invoked function.
+
+# Try / Except / Finally
+MoLang uses `except` instead of JavaScript's `catch`.
+try
+    result = riskyFunction()
+except error
+    print error
+finally
+    print "Finished"
+becomes JavaScript `try / catch / finally`.
+If no error variable is provided:
+except
+    print "Something went wrong"
+an `error` variable is used.
+
+# Return / Break / Continue
+return
+return value
+break
+continue
+map directly to their JavaScript equivalents.
+
+# Print
+MoLang uses:
+print "Hello"
+or:
+print name
+or:
+print("Hello", name)
+These become JavaScript `console.log(...)`.
+The preview environment may display these messages inside its built-in console.
+
+# DOM
+MoLang provides simple DOM commands.
+### Get an element
+button = get "#myButton"
+becomes:
+let button = document.querySelector("#myButton");
+Selectors should normally be written as strings:
+get "#button"
+get ".card"
+get "button"
+get "#app .title"
+Special values:
+get document
+get window
+can refer directly to `document` and `window`.
+
+# Setting HTML
+set "#app" html to "<h1>Hello</h1>"
+becomes an `innerHTML` assignment.
+# Setting Text
+set "#title" text to "Hello"
+uses `textContent`.
+# Setting Value
+set "#username" value to "Mohamed"
+sets the element's `value`.
+# Setting Styles
+set "#box" style background-color to "red"
+becomes a JavaScript style assignment using the corresponding camelCase property.
+
+# Classes
+Add:
+add class "active" to "#menu"
+Remove:
+remove class "active" from "#menu"
+Toggle:
+toggle class "active" on "#menu"
+These use JavaScript's `classList`.
+
+# Display
+Show:
+show "#menu"
+Hide:
+hide "#menu"
+Remove:
+remove "#menu"
+Focus:
+focus "#username"
+
+# Creating Elements
+create div as box
+becomes:
+let box = document.createElement("div");
+Then it can be appended:
+append box to "#container"
+which becomes a normal `appendChild` operation.
+
+# Events
+MoLang provides a simple event syntax:
+on "#button" click
+    print "Clicked!"
+This creates a JavaScript `addEventListener`.
+Event variables can be declared using `as`:
+on "#input" input as event
+    print event.target.value
+The event name can be any normal JavaScript event name.
+Examples:
+on "#button" click
+on "#input" input
+on window resize
+on document keydown
+
+# Native JavaScript
+MoLang does **not** restrict the project to its custom syntax.
+If a JavaScript feature is not represented by MoLang syntax, write normal JavaScript directly.
+For example:
+script.
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers
+    .filter(x => x > 2)
+    .map(x => x * 2);
+console.log(result);
+Native JavaScript is passed through by the compiler.
+Native JavaScript blocks can also be written directly:
+if (condition) {
+    console.log("Native JavaScript");
+}
+When using native blocks, manage their `{}` braces normally.
+
+# Important Rule
+MoLang is **not a replacement for HTML, CSS, or JavaScript**.
+It is a simpler syntax layer over them.
+Therefore:
+* Use MoLang syntax when it makes the code easier.
+* Use normal HTML whenever necessary.
+* Use normal CSS whenever necessary.
+* Use normal JavaScript whenever necessary.
+* Do not avoid a feature just because MoLang does not have a special command for it.
+* If MoLang has no equivalent for something, use the native language syntax directly.
+A complete project can freely mix all of these features.
+The goal is simply to make common HTML/CSS/JavaScript development shorter and easier while keeping the full power of the underlying web technologies.
+            </textarea>
+
+
+            <div class="buttons">
+                <button onclick="copyPrompt()">
+                    Copy Prompt
+                </button>
+
+                <button class="secondary" onclick="window.location.href='index.html'">
+                    Return to website
+                </button>
+            </div>
+
+        </section>
+
+
+        <div class="footer">
+            MoLang — Start building with your AI assistant.
+        </div>
+
+    </main>
+
+
+    <script>
+        function copyPrompt() {
+            const prompt = document.getElementById("prompt");
+
+            navigator.clipboard.writeText(prompt.value);
+
+            const button = document.querySelector(".buttons button");
+
+            const oldText = button.textContent;
+
+            button.textContent = "Copied!";
+
+            setTimeout(() => {
+                button.textContent = oldText;
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
