@@ -235,7 +235,16 @@ function selectorExpression(selector) {
         return `document.querySelector(${selector})`;
     }
 
-    return selector;
+    if (selector === "window") {
+        return "window";
+    }
+
+    if (selector === "document") {
+        return "document";
+    }
+
+    return `__molangResolve(${selector})`;
+
 }
 
 function compileScript(input) {
@@ -243,14 +252,68 @@ function compileScript(input) {
     const stack = [];
     const declared = new Set();
 
+    output.push(
+        `function __molangResolve(value) { return typeof value === "string" ? document.querySelector(value) : value; }`
+    );
     function closeBlocks(indent) {
         while (
             stack.length &&
             indent <= stack[stack.length - 1].indent
         ) {
             const block = stack.pop();
-            output.push(block.type === "event" ? "});" : "}");
+
+            if (block.type === "event") {
+                output.push("});");
+            } else if (block.type === "async") {
+                output.push("})();");
+            } else if (block.type === "native") {
+                // Native JavaScript blocks manage their own braces.
+            } else {
+                output.push("}");
+            }
         }
+    }
+
+    function closeAllBlocks() {
+        while (stack.length) {
+            const block = stack.pop();
+
+            if (block.type === "event") {
+                output.push("});");
+            } else if (block.type === "async") {
+                output.push("})();");
+            } else if (block.type === "native") {
+                // Native JavaScript owns its own closing brace.
+            } else {
+                output.push("}");
+            }
+        }
+    }
+
+    function camelCaseCssProperty(property) {
+        return property.replace(/-([a-z])/g, (_, letter) =>
+            letter.toUpperCase()
+        );
+    }
+
+    function replaceContinuationBlock(indent, type) {
+        if (
+            stack.length &&
+            stack[stack.length - 1].indent === indent &&
+            stack[stack.length - 1].type !== "native"
+        ) {
+            stack.pop();
+        }
+
+        if (type === "elif") {
+            return "else if";
+        }
+
+        if (type === "else") {
+            return "else";
+        }
+
+        return type;
     }
 
     for (const raw of input.replace(/\r/g, "").split("\n")) {
@@ -266,17 +329,106 @@ function compileScript(input) {
             continue;
         }
 
-        if (line.startsWith("//")) {
+        if (
+            line.startsWith("//") ||
+            line.startsWith("/*") ||
+            line.startsWith("*")
+        ) {
             output.push(line);
+            continue;
+        }
+
+        if (/^(}\s*;?|}\s*\)\s*;?|}\s*\]\s*;?)$/.test(line)) {
+            if (
+                stack.length &&
+                stack[stack.length - 1].type === "native"
+            ) {
+                stack.pop();
+            }
+
+            output.push(line);
+            continue;
+        }
+
+        let match;
+
+        match = line.match(/^elif\s+(.+?)\s*:?\s*$/);
+        if (match) {
+            const keyword = replaceContinuationBlock(indent, "elif");
+
+            output.push(
+                `${keyword} (${transformExpression(match[1])}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(/^else\s*:?\s*$/);
+        if (match) {
+            const keyword = replaceContinuationBlock(indent, "else");
+
+            output.push(`${keyword} {`);
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(/^except(?:\s+(\w+))?\s*:?\s*$/);
+        if (match) {
+            replaceContinuationBlock(indent, "except");
+
+            const errorName = match[1] || "error";
+
+            output.push(`catch (${errorName}) {`);
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            declared.add(errorName);
+
+            continue;
+        }
+
+        match = line.match(/^finally\s*:?\s*$/);
+        if (match) {
+            replaceContinuationBlock(indent, "finally");
+
+            output.push("finally {");
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
             continue;
         }
 
         closeBlocks(indent);
 
-        let match;
+        if (line.endsWith("{")) {
+            output.push(line);
+
+            stack.push({
+                indent,
+                type: "native"
+            });
+
+            continue;
+        }
 
         match = line.match(
-            /^on\s+(.+?)\s+([a-zA-Z][\w-]*)(?:\s+as\s+(\w+))?\s*:?$/
+            /^on\s+(.+?)\s+([a-zA-Z][\w-]*)(?:\s+as\s+(\w+))?\s*:?\s*$/
         );
 
         if (match) {
@@ -288,28 +440,90 @@ function compileScript(input) {
                 `${selectorExpression(match[1])}.addEventListener("${match[2]}", ${callback}`
             );
 
-            stack.push({ indent, type: "event" });
+            stack.push({
+                indent,
+                type: "event"
+            });
+
             continue;
         }
 
-        match = line.match(/^if\s+(.+?)\s*:?$/);
-
+        match = line.match(/^if\s+(.+?)\s*:?\s*$/);
         if (match) {
-            output.push(`if (${transformExpression(match[1])}) {`);
-            stack.push({ indent, type: "block" });
+            output.push(
+                `if (${transformExpression(match[1])}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
             continue;
         }
 
-        match = line.match(/^def\s+(\w+)\s*\((.*?)\)\s*:?$/);
-
+        match = line.match(/^while\s+(.+?)\s*:?\s*$/);
         if (match) {
-            output.push(`function ${match[1]}(${match[2]}) {`);
-            stack.push({ indent, type: "block" });
+            output.push(
+                `while (${transformExpression(match[1])}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
             continue;
         }
 
         match = line.match(
-            /^for\s+(\w+)\s+in\s+range\s*\((.*?)\)\s*:?$/
+            /^async\s+def\s+(\w+)\s*\((.*?)\)\s*:?\s*$/
+        );
+
+        if (match) {
+            output.push(
+                `async function ${match[1]}(${match[2]}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(
+            /^def\s+(\w+)\s*\((.*?)\)\s*:?\s*$/
+        );
+
+        if (match) {
+            output.push(
+                `function ${match[1]}(${match[2]}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(/^async\s*:?\s*$/);
+        if (match) {
+            output.push("(async () => {");
+
+            stack.push({
+                indent,
+                type: "async"
+            });
+
+            continue;
+        }
+
+        match = line.match(
+            /^for\s+(\w+)\s+in\s+range\s*\((.*?)\)\s*:?\s*$/
         );
 
         if (match) {
@@ -330,84 +544,319 @@ function compileScript(input) {
                 [start, end, step] = parts;
             }
 
+            const variable = match[1];
+
             output.push(
-                `for (let ${match[1]} = ${start}; ${match[1]} < ${end}; ${match[1]} += ${step}) {`
+                `for (let ${variable} = ${start}; ${step} < 0 ? ${variable} > ${end} : ${variable} < ${end}; ${variable} += ${step}) {`
             );
 
-            stack.push({ indent, type: "block" });
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(
+            /^for\s+(\w+)\s+in\s+(.+?)\s*:?\s*$/
+        );
+
+        if (match) {
+            output.push(
+                `for (const ${match[1]} of ${transformExpression(match[2])}) {`
+            );
+
+            stack.push({
+                indent,
+                type: "block"
+            });
+
+            continue;
+        }
+
+        match = line.match(/^try\s*:?\s*$/);
+        if (match) {
+            output.push("try {");
+
+            stack.push({
+                indent,
+                type: "try"
+            });
+
             continue;
         }
 
         match = line.match(/^(\w+)\s*=\s*get\s+(.+)$/);
 
         if (match) {
-            const prefix = declared.has(match[1]) ? "" : "let ";
-            declared.add(match[1]);
+            const variable = match[1];
+            const prefix = declared.has(variable) ? "" : "let ";
+
+            declared.add(variable);
 
             output.push(
-                `${prefix}${match[1]} = ${selectorExpression(match[2])};`
+                `${prefix}${variable} = ${selectorExpression(match[2])};`
             );
 
             continue;
         }
 
-        match = line.match(/^set\s+(.+?)\s+text\s+to\s+(.+)$/);
+        match = line.match(
+            /^set\s+(.+?)\s+style\s+([a-zA-Z-]+)\s+to\s+(.+?)\s*;?$/
+        );
 
         if (match) {
+            const property = camelCaseCssProperty(match[2]);
+
             output.push(
-                `${selectorExpression(match[1])}.textContent = ${transformExpression(match[2])};`
+                `${selectorExpression(match[1])}.style.${property} = ${transformExpression(match[3])};`
             );
+
             continue;
         }
 
-        match = line.match(/^set\s+(.+?)\s+html\s+to\s+(.+)$/);
+        match = line.match(
+            /^set\s+(.+?)\s+html\s+to\s+(.+?)\s*;?$/
+        );
 
         if (match) {
             output.push(
                 `${selectorExpression(match[1])}.innerHTML = ${transformExpression(match[2])};`
             );
+
             continue;
         }
 
-        match = line.match(/^print\s*\((.*)\)$/);
+        match = line.match(
+            /^set\s+(.+?)\s+text\s+to\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.textContent = ${transformExpression(match[2])};`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^set\s+(.+?)\s+value\s+to\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.value = ${transformExpression(match[2])};`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^add\s+class\s+(.+?)\s+to\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[2])}.classList.add(${transformExpression(match[1])});`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^remove\s+class\s+(.+?)\s+from\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[2])}.classList.remove(${transformExpression(match[1])});`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^toggle\s+class\s+(.+?)\s+on\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[2])}.classList.toggle(${transformExpression(match[1])});`
+            );
+
+            continue;
+        }
+
+        match = line.match(/^show\s+(.+?)\s*;?$/);
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.style.display = "";`
+            );
+
+            continue;
+        }
+
+        match = line.match(/^hide\s+(.+?)\s*;?$/);
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.style.display = "none";`
+            );
+
+            continue;
+        }
+
+        match = line.match(/^remove\s+(.+?)\s*;?$/);
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.remove();`
+            );
+
+            continue;
+        }
+
+        match = line.match(/^focus\s+(.+?)\s*;?$/);
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[1])}.focus();`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^create\s+([a-zA-Z][\w:-]*)\s+as\s+(\w+)\s*;?$/
+        );
+
+        if (match) {
+            const variable = match[2];
+            const prefix = declared.has(variable) ? "" : "let ";
+
+            declared.add(variable);
+
+            output.push(
+                `${prefix}${variable} = document.createElement("${match[1]}");`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^append\s+(\w+)\s+to\s+(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${selectorExpression(match[2])}.appendChild(${match[1]});`
+            );
+
+            continue;
+        }
+
+        match = line.match(/^print\s*\((.*)\)\s*;?$/);
 
         if (match) {
             output.push(
                 `console.log(${transformExpression(match[1])});`
             );
+
             continue;
         }
 
-        match = line.match(/^print\s+(.+)$/);
+        match = line.match(/^print\s+(.+?)\s*;?$/);
 
         if (match) {
             output.push(
                 `console.log(${transformExpression(match[1])});`
             );
+
             continue;
         }
 
-        match = line.match(/^(\w+)\s*=\s*(.+)$/);
+        match = line.match(/^return(?:\s+(.+?))?\s*;?$/);
 
         if (match) {
-            const prefix = declared.has(match[1]) ? "" : "let ";
-            declared.add(match[1]);
-
             output.push(
-                `${prefix}${match[1]} = ${transformExpression(match[2])};`
+                match[1]
+                    ? `return ${transformExpression(match[1])};`
+                    : "return;"
             );
+
             continue;
         }
 
-        output.push(line.endsWith(";") ? line : line + ";");
+        if (/^break\s*;?$/.test(line)) {
+            output.push("break;");
+            continue;
+        }
+
+        if (/^continue\s*;?$/.test(line)) {
+            output.push("continue;");
+            continue;
+        }
+
+        match = line.match(/^await\s+(.+?)\s*;?$/);
+
+        if (match) {
+            output.push(
+                `await ${transformExpression(match[1])};`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^([A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*)\s*(\+=|-=|\*=|\/=|%=)\s*(.+?)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${match[1]} ${match[2]} ${transformExpression(match[3])};`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^([A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*)(\+\+|--)\s*;?$/
+        );
+
+        if (match) {
+            output.push(
+                `${match[1]}${match[2]};`
+            );
+
+            continue;
+        }
+
+        match = line.match(
+            /^([A-Za-z_$][\w$]*)\s*=\s*(.+?)\s*;?$/
+        );
+
+        if (match) {
+            const variable = match[1];
+            const prefix = declared.has(variable) ? "" : "let ";
+
+            declared.add(variable);
+
+            output.push(
+                `${prefix}${variable} = ${transformExpression(match[2])};`
+            );
+
+            continue;
+        }
+
+        output.push(line);
     }
 
-    while (stack.length) {
-        const block = stack.pop();
-        output.push(block.type === "event" ? "});" : "}");
-    }
+    closeAllBlocks();
 
     return output.join("\n");
+
 }
 
 function runProject() {
@@ -511,11 +960,6 @@ function setupUI() {
 
     document.getElementById("runButton").onclick = runProject;
 
-    document.getElementById("clearButton").onclick = () => {
-        editors[activeEditor].setValue("");
-        editors[activeEditor].focus();
-        toast("Editor cleared");
-    };
 
     document.getElementById("copyButton").onclick = async () => {
         const text =
